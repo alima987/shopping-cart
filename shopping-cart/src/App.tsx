@@ -1,11 +1,14 @@
 import './App.css'
 import Main from './pages/Main'
-import Products from './pages/Products'
+import Header from './components/Header/Header'
 
 function App() {
 
   return (
-    <Products />
+    <>
+    <Header />
+    <Main />
+    </>
   )
 }
 

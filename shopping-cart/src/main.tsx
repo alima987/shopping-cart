@@ -4,11 +4,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import App from './App.tsx'
 import Main from './pages/Main.tsx';
-import Products from './pages/Products.tsx';
+import Products from './pages/Products/Products.tsx';
 import Cart from './pages/Cart.tsx';
 import './index.css'
+import Header from './components/Header/Header.tsx';
+import App from './App.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -17,20 +19,26 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Main />,
-  },
-  {
-    path: "products",
-    element: <Products />,
-  },
-  {
-    path: "cart",
-    element: <Cart />,
+    element: <Header />,
+    children: [
+      {
+        path: "/",
+        element: <Main />
+      },
+      {
+        path: "coffee",
+        element: <Products />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+    ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </React.StrictMode>,
 )

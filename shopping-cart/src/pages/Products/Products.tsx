@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"; 
+import "./Products.scss";
 
 interface Product {
     id: number;
@@ -32,7 +33,7 @@ const Products = () => {
     <div className="poducts">
       {coffees.map((coffee) => (
         <div key={coffee.id} className="product">
-          <img src={coffee.image_url}/>
+          <img className="product-img" src={coffee.image_url}/>
           <p>{coffee.name}</p>
           <p>{coffee.description}</p>
           <p>{coffee.price}</p>
