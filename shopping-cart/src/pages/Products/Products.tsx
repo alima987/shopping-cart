@@ -34,14 +34,14 @@ const Products = () => {
       {coffees.map((coffee) => (
         <div key={coffee.id} className="product">
           <img className="product-img" src={coffee.image_url}/>
-          <p>{coffee.name}</p>
-          <p>{coffee.description}</p>
-          <p>{coffee.price}</p>
-          <p>{coffee.region}</p>
-          <p>{coffee.weight}</p>
-          <p>{coffee.roast_level}</p>
-          <p>{coffee.flavor_profile}</p>
-          <p>{coffee.grind_option}</p>
+          <p className="poduct-text">{coffee.name}</p>
+          <p className="poduct-text">{coffee.description}</p>
+          <p className="poduct-text">{coffee.price}</p>
+          <p className="poduct-text">{coffee.region}</p>
+          <p className="poduct-text">{coffee.weight}</p>
+          <p className="poduct-text">{coffee.roast_level}</p>
+          <p className="poduct-text">{coffee.flavor_profile}</p>
+          <p className="poduct-text">{coffee.grind_option}</p>
         </div>
       ))}
     </div>

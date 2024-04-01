@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { Outlet } from "react-router-dom";
+
 
 const Header = () => {
     return (
@@ -8,6 +10,7 @@ const Header = () => {
         <Link to="/">Home</Link>
         <Link to="/coffee">Coffee</Link>
         <Link to="/cart">Cart</Link>
+        <Outlet />
         </>
     )
 
