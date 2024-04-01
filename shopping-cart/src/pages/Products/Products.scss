@@ -1,3 +1,7 @@
+.poducts {
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+}
 .product-img {
     width: 200px;
     height: 130px;
