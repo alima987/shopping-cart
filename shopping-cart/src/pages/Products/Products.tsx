@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"; 
 import "./Products.scss";
 import Pagination from "../../components/Pagination/Pagination";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-interface Product {
+export type Product = {
     id: number;
     name: string;
     description: string;
@@ -18,24 +20,32 @@ interface Product {
 const Products = () => {
 
     const [coffees, setCoffees] = useState<Product[]>([])
-    const [error, setError] =useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
+    const [isLoading, setIsLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 3;
 
     const getApiData = async () => {
+      setIsLoading(true)
       try {
-        const baseUrl = "https://fake-coffee-api.vercel.app/api";
+        const baseUrl = `https://fake-coffee-api.vercel.app/api`;
         const response = await fetch(baseUrl);
         const data = await response.json();
         setCoffees(data)
+        setIsLoading(false)
       } catch(error) {
          setError(error instanceof Error ? error.message : 'Unknown Error: api.get.data')
+         setIsLoading(false)
       }
     }    
 
  useEffect(() => {
     getApiData();
  }, [])
+
+ const renderLoader = () => {
+    return <div>Loading...</div>
+ }
 
  const lastItemIndx = currentPage * itemsPerPage;
  const firstItemIndx = lastItemIndx - itemsPerPage;
@@ -45,11 +55,12 @@ const Products = () => {
   return (
     <>
     {error && <div>Error: {error}</div>}
+    {isLoading ? renderLoader() : null}
     <h2>Coffee</h2>
     <div className="poducts">
       {currentItem.map((coffee) => (
         <div key={coffee.id} className="product">
-          <img className="product-img" src={coffee.image_url}/>
+          <img className="product-img" src={coffee.image_url} />
           <p className="poduct-text">{coffee.name}</p>
           <p className="poduct-text">{coffee.description}</p>
           <p className="poduct-text">{coffee.price}</p>
@@ -58,6 +69,8 @@ const Products = () => {
           <p className="poduct-text">{coffee.roast_level}</p>
           <p className="poduct-text">{coffee.flavor_profile}</p>
           <p className="poduct-text">{coffee.grind_option}</p>
+          <Link to={`/coffees/${coffee.id}`}>Detailed</Link>
+          <Outlet />
         </div>
       ))}
     </div>
