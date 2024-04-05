@@ -1,47 +1,26 @@
-import { useEffect, useState } from "react"; 
+import { useState } from "react"; 
+import useLocalStorageState from 'use-local-storage-state'
 import "./Products.scss";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { useCoffeeApi, Product } from "../../hooks/useCoffeeApi";
 
-export type Product = {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    region: string;
-    weight: number;
-    roast_level: number;
-    flavor_profile: [];
-    grind_option: [];
-    image_url: string;
+export interface CartProps {
+  [coffeeId: string]: Product
 }
-
 const Products = () => {
-
-    const [coffees, setCoffees] = useState<Product[]>([])
-    const [error, setError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 3;
+    const baseUrl = `https://fake-coffee-api.vercel.app/api`;
+    const { data: coffees, error, isLoading } = useCoffeeApi(baseUrl);
+    const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
 
-    const getApiData = async () => {
-      setIsLoading(true)
-      try {
-        const baseUrl = `https://fake-coffee-api.vercel.app/api`;
-        const response = await fetch(baseUrl);
-        const data = await response.json();
-        setCoffees(data)
-        setIsLoading(false)
-      } catch(error) {
-         setError(error instanceof Error ? error.message : 'Unknown Error: api.get.data')
-         setIsLoading(false)
-      }
-    }    
-
- useEffect(() => {
-    getApiData();
- }, [])
+    const addToCart = (product: Product)=> {
+      const newCart = {...cart}
+      newCart[product.id] = product
+      setCart(newCart)
+    }
 
  const renderLoader = () => {
     return <div>Loading...</div>
@@ -58,20 +37,21 @@ const Products = () => {
     {isLoading ? renderLoader() : null}
     <h2>Coffee</h2>
     <div className="poducts">
-      {currentItem.map((coffee) => (
+      {currentItem.map((coffee: any) => (
         <div key={coffee.id} className="product">
+          <Link to={`/coffees/${coffee.id}`}>
           <img className="product-img" src={coffee.image_url} />
           <p className="poduct-text">{coffee.name}</p>
-          <p className="poduct-text">{coffee.description}</p>
           <p className="poduct-text">{coffee.price}</p>
-          <p className="poduct-text">{coffee.region}</p>
-          <p className="poduct-text">{coffee.weight}</p>
-          <p className="poduct-text">{coffee.roast_level}</p>
-          <p className="poduct-text">{coffee.flavor_profile}</p>
-          <p className="poduct-text">{coffee.grind_option}</p>
-          <Link to={`/cart/${coffee.id}`}>ADD TO CART</Link>
-          <Link to={`/coffees/${coffee.id}`}>Detailed</Link>
+          </Link>
           <Outlet />
+          <button
+         name="ADD TO CART"
+         className="cart-btn"
+         onClick={() => addToCart(coffee)}
+         >
+          ADD TO CART
+         </button>
         </div>
       ))}
     </div>
