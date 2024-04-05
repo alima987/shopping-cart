@@ -69,6 +69,7 @@ const Products = () => {
           <p className="poduct-text">{coffee.roast_level}</p>
           <p className="poduct-text">{coffee.flavor_profile}</p>
           <p className="poduct-text">{coffee.grind_option}</p>
+          <Link to={`/cart/${coffee.id}`}>ADD TO CART</Link>
           <Link to={`/coffees/${coffee.id}`}>Detailed</Link>
           <Outlet />
         </div>
