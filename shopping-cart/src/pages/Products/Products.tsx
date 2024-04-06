@@ -5,7 +5,10 @@ import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useCoffeeApi, Product } from "../../hooks/useCoffeeApi";
-
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
 export interface CartProps {
   [coffeeId: string]: Product
 }

@@ -11,6 +11,7 @@ export type Product = {
     flavor_profile: [];
     grind_option: [];
     image_url: string;
+    quantity?: number;
 }
 export const useCoffeeApi = (url: string) => {
     const [data, setData] = useState<Product[]>([]);
