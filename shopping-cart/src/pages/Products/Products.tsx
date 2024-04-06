@@ -16,10 +16,9 @@ const Products = () => {
     const { data: coffees, error, isLoading } = useCoffeeApi(baseUrl);
     const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
 
-    const addToCart = (product: Product)=> {
-      const newCart = {...cart}
-      newCart[product.id] = product
-      setCart(newCart)
+    const addToCart = (coffee: Product) => {
+     const updatedCart = {...cart, [coffee.id]: coffee}
+     setCart(updatedCart)
     }
 
  const renderLoader = () => {
