@@ -1,13 +1,13 @@
 import useLocalStorageState from "use-local-storage-state";
 import { CartProps } from "./Products/Products"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Operation } from "../components/QuantityControl";
+import QuantityControl from "../components/QuantityControl";
 const Cart = () => {
 const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
-const [quantities, setQuantities] = useState<{[key: number]: number}>({})
 const location = useLocation()
 const getCoffees = () => Object.values(cart || {})
-
 
 useEffect(() => {
     window.scrollTo(0,0)
@@ -18,25 +18,25 @@ const handleDeleteCoffees = (coffeeId: number) => {
     delete updatedCoffee[coffeeId]
     setCart(updatedCoffee)
 }
-const handleQuantityPlus = (coffeeId: number) => {
-    setQuantities({...quantities, [coffeeId]: (quantities[coffeeId] || 0) + 1})
-}
-const handleQuantityMinus = (coffeeId: number) => {
-    if(quantities[coffeeId] > 0) {
-        setQuantities({...quantities, [coffeeId]: (quantities[coffeeId]) - 1})
-    }
-}
 
 const clearCart = () => {
     setCart({})
-    setQuantities({})
 }
 
-const handleQuantityChange = (coffeeId: number, newQuantity: number) => {
-    setQuantities({...quantities, [coffeeId]: newQuantity})
-}
+const handleQuantityChange = (coffeeId: number, operation: Operation) => {
+    const updatedQuant = {...cart}
+    if(updatedQuant[coffeeId]) {
+        if(operation === 'plus') {
+            updatedQuant[coffeeId] = {... updatedQuant[coffeeId], quantity: updatedQuant[coffeeId].quantity + 1}
+        } else {
+            updatedQuant[coffeeId] = {... updatedQuant[coffeeId], quantity: updatedQuant[coffeeId].quantity - 1}
+        }
+    } 
+    setCart(updatedQuant)
+};
 
-const handleTotalAmount = () => getCoffees().reduce((acc, curr) => acc + (curr.price * quantities[curr.id] || 0), 0)
+
+const handleTotalAmount = () => getCoffees().reduce((acc, curr) => acc + (curr.price * curr.quantity), 0)
 
     return (
         <section>
@@ -48,15 +48,11 @@ const handleTotalAmount = () => getCoffees().reduce((acc, curr) => acc + (curr.p
                     <p>{item.name}</p>
                     <p>{item.description}</p>
                     <p>{item.price}</p>
-                    <input type="button" value="-" onClick={() => handleQuantityMinus(item.id)} />
-                    <input
-                    type="number"
-                    min="1"
-                    value={quantities[item.id] || 0}
-                    onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                    />
-                    <input type="button" value="+" onClick={() => handleQuantityPlus(item.id)}/>
-                    <p>Total: ${item.price * (quantities[item.id] || 0)}</p>
+                     <QuantityControl 
+                     handleQuantityChange={handleQuantityChange}
+                     coffeeId={item.id}
+                     />
+                    <p>Total: ${item.price * item.quantity}</p>
                     <button onClick={(() => handleDeleteCoffees(item.id))}>
                      Remove
                      </button>
