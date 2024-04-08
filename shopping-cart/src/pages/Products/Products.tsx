@@ -4,7 +4,6 @@ import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useCoffeeApi, Product } from "../../hooks/useCoffeeApi";
-import useLocalStorageState from 'use-local-storage-state'
 
 export interface CartProps {
   [coffeeId: string]: Product
@@ -14,15 +13,7 @@ const Products = () => {
     const itemsPerPage = 3;
     const baseUrl = `https://fake-coffee-api.vercel.app/api`;
     const { data: coffees, error, isLoading } = useCoffeeApi(baseUrl);
-    const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
 
-
-    const isInCart = (coffeeId: number):boolean => Object.values('cart' || {}).includes(coffeeId.toString())
-    const addToCart = (coffee: Product) => {
-      coffee.quantity = 1
-      const updatedCart = {...cart, [coffee.id]: coffee}
-      setCart(updatedCart)
-    }
  const renderLoader = () => {
     return <div>Loading...</div>
  }
@@ -46,15 +37,6 @@ const Products = () => {
           <p className="poduct-text">{coffee.price}</p>
           </Link>
           <Outlet />
-          <button
-            key={coffee.id}
-            name="ADD TO CART"
-            className="cart-btn"
-            disabled={isInCart(coffee.id)}
-            onClick={() => addToCart(coffee)}
-            >
-               ADD TO CART
-            </button>
         </div>
       ))}
     </div>

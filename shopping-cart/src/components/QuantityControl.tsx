@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export type Operation = 'plus'|'minus'
 
 interface Props {
@@ -7,31 +7,38 @@ interface Props {
     
 }
 const QuantityControl = ({handleQuantityChange, coffeeId }: Props) => {
-    const [amount, setAmount] = useState<number>(1)
+    const initialAmount = localStorage.getItem(`quantity_${coffeeId}`) || '1';
+    const [amount, setAmount] = useState<number>(parseInt(initialAmount))
+    useEffect(() => {
+        localStorage.setItem(`quantity_${coffeeId}`, amount.toString());
+    }, [amount, coffeeId]);
 
-
+    useEffect(() => {
+        setAmount(1);
+    }, [coffeeId]);
     const handleQuantityPlus = (): void => {
+        const updatedAmount = amount + 1;
+        setAmount(updatedAmount);
         handleQuantityChange(coffeeId, 'plus')
-        const updatedAmount = amount + 1
-        setAmount(updatedAmount)
-        
     }
     const handleQuantityMinus = (): void => {
-        handleQuantityChange(coffeeId, 'minus')
-        if(amount > 0) {
-           setAmount(amount - 1)
+        if (amount > 0) {
+            const updatedAmount = amount - 1;
+            setAmount(updatedAmount);
+            handleQuantityChange(coffeeId, 'minus');
         }
     }
+    
+
     return (
         <div>
             <input type="button" value="-" onClick={handleQuantityMinus} />
             <input
                 type="number"
                 min="1"
-                step="1"
-                max=""
+                max="20"
                 value={amount}
-                onChange={((e) => setAmount(parseInt(e.target.value)))}
+                onChange={(e) => setAmount(parseInt(e.target.value))}
                 />
             <input type="button" value="+" onClick={handleQuantityPlus}/>
         </div>

@@ -4,12 +4,13 @@ import coffeeImg from '../assets/coffeeImg.png'
 import CartWidget from "./CartWidget";
 import useLocalStorageState from "use-local-storage-state";
 import { CartProps } from "../pages/Products/Products";
+//import { Product } from "../hooks/useCoffeeApi";
+//import { useState } from "react"; 
 
 const Header = () => {
-const [cart,] = useLocalStorageState<CartProps>('cart', {})
+    const [cart, ] = useLocalStorageState<CartProps>('cart', {})
 
 const coffeeCount: number = Object.keys(cart || {}).length
-
     return (
         <>
         <div>
