@@ -1,0 +1,119 @@
+.cartSection {
+    height: 100%;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.cartTitle {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cartProducts {
+    
+}
+
+.cartProduct {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.cartImg {
+    width: 20vw;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.cartName {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.cartText {
+    margin-bottom: 0.5rem;
+}
+
+.cartTotal {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.cartRemoveBtn {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.removeAllBtn {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.cartSubtotal {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.checkout {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.checkout:hover,
+.cartRemoveBtn:hover,
+.removeAllBtn:hover {
+    opacity: 0.8;
+}
+.grid {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.grid > div {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.grid > div:nth-child(1) {
+    grid-row: span 2;
+}
+.grid > div:nth-child(5) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid > div:nth-child(5) button {
+    margin-top: 0.5rem;
+}

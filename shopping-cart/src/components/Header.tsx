@@ -4,6 +4,7 @@ import coffeeImg from '../assets/coffeeImg.png'
 import CartWidget from "./CartWidget";
 import useLocalStorageState from "use-local-storage-state";
 import { CartProps } from "../pages/Products/Products";
+import styles from "../components/Header.module.css"
 //import { Product } from "../hooks/useCoffeeApi";
 //import { useState } from "react"; 
 
@@ -13,18 +14,24 @@ const Header = () => {
 const coffeeCount: number = Object.keys(cart || {}).length
     return (
         <>
-        <div>
-            <Link to="/">
-            <img src={coffeeImg}/>
+        <div className={styles.headerContainer}>
+        <div className={styles.logo}>
+            <Link className={styles.link} to="/">
+            <img className={styles.headerImg} src={coffeeImg}/>
             </Link>
         </div>
-        <h2>Brewed Bliss Coffee Co.</h2>
-        <div>
+        <div className={styles.titleWrap}>
+        <h2 className={styles.headerTitle}>Brewed Bliss Coffee Co.</h2>
+        <div className={styles.linkMenu}>
+        <Link className={styles.linkHome} to="/">Home</Link>
+        <Link className={styles.linkCoffee} to="/coffee">Coffee</Link>
+        <Link className={styles.linkCart} to="/cart">Cart</Link>
+        </div>
+        </div>
+        <div className={styles.headerCart}>
             <CartWidget coffeeCount={coffeeCount}/>
         </div>
-        <Link to="/">Home</Link>
-        <Link to="/coffee">Coffee</Link>
-        <Link to="/cart">Cart</Link>
+        </div>
         <Outlet />
         </>
     )

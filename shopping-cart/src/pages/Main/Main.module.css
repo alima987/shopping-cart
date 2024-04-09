@@ -1,0 +1,92 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .mainHeadTitle {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .sensation {
+    display: flex;
+    margin-bottom: 41px;
+    gap: 40px;
+  }
+  .sensationImg {
+    width: 20vw;
+  }
+  .sensationText {
+    font-size: 1.4em;
+    text-align: justify;
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .selections {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    grid-template-columns: minmax(auto, 20rem) minmax(auto, 20rem);
+    text-align: justify;
+  }
+  .mainTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .mainText {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .mainImg {
+    width: 27vw;
+    height: auto;
+    margin-right: 1rem;
+  }
+
+  .selectionText {
+    text-align: justify;
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+  }
+.seeMoreBtn {
+  width: 128px;
+  margin-top: 20px;
+  padding: 0.5rem 1rem;
+  background-color: #f5ce2e;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.seeMoreBtn:hover {
+  background-color: #ffc107;
+}
+.selectionTitle {
+  font-family: "Crimson Text", serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.7em;
+  text-align: center;
+  margin-bottom: 10px;
+}

@@ -1,5 +1,5 @@
 import { useState } from "react"; 
-import "./Products.scss";
+import styles from "./Products.module.css";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
@@ -24,17 +24,17 @@ const Products = () => {
  const paginate = (pageNum: number) => setCurrentPage(pageNum)
  
   return (
-    <>
+    <div className={styles.productContainer}>
     {error && <div>Error: {error}</div>}
     {isLoading ? renderLoader() : null}
-    <h2>Coffee</h2>
-    <div className="poducts">
+    <h2 className={styles.productTitle}>Coffee</h2>
+    <div className={styles.poducts}>
       {currentItem.map((coffee: any) => (
-        <div key={coffee.id} className="product">
+        <div key={coffee.id} className={styles.product}>
           <Link to={`/coffees/${coffee.id}`}>
-          <img className="product-img" src={coffee.image_url} />
-          <p className="poduct-text">{coffee.name}</p>
-          <p className="poduct-text">{coffee.price}</p>
+          <img className={styles.productImg} src={coffee.image_url} />
+          <p className={styles.productTextTitle}>{coffee.name}</p>
+          <p className={styles.productText}><strong>$</strong> {coffee.price}</p>
           </Link>
           <Outlet />
         </div>
@@ -46,7 +46,7 @@ const Products = () => {
     disable={{left: currentPage === 1, right: lastItemIndx >= coffees.length}}
     nav={{current: currentPage, total: Math.ceil(coffees.length / itemsPerPage)}}
     />
-    </>
+    </div>
   )
 }
 export default Products

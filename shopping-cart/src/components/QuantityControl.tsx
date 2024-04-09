@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState  } from "react";
 export type Operation = 'plus'|'minus'
 
 interface Props {
@@ -7,27 +7,21 @@ interface Props {
     
 }
 const QuantityControl = ({handleQuantityChange, coffeeId }: Props) => {
-    const initialAmount = localStorage.getItem(`quantity_${coffeeId}`) || '1';
-    const [amount, setAmount] = useState<number>(parseInt(initialAmount))
-    useEffect(() => {
-        localStorage.setItem(`quantity_${coffeeId}`, amount.toString());
-    }, [amount, coffeeId]);
-
-    useEffect(() => {
-        setAmount(1);
-    }, [coffeeId]);
+    const [amount, setAmount] = useState<number>(1);
+    
     const handleQuantityPlus = (): void => {
         const updatedAmount = amount + 1;
         setAmount(updatedAmount);
-        handleQuantityChange(coffeeId, 'plus')
+        handleQuantityChange(coffeeId, 'plus');
     }
+        
     const handleQuantityMinus = (): void => {
         if (amount > 0) {
             const updatedAmount = amount - 1;
             setAmount(updatedAmount);
             handleQuantityChange(coffeeId, 'minus');
         }
-    }
+}
     
 
     return (

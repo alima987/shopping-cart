@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Main from './pages/Main.tsx';
 import Products from './pages/Products/Products.tsx';
-import Cart from './pages/Cart.tsx';
+import Cart from './pages/Cart/Cart.tsx';
 import './index.css'
 import App from './App.tsx';
 import {

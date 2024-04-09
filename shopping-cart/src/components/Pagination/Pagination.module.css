@@ -1,0 +1,36 @@
+/* Pagination.module.css */
+
+.paginationCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.paginationBtn {
+    background-color: #f5ce2e;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.paginationBtn:hover {
+    background-color: #e0b20b;
+}
+
+.paginationBtn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.paginationNav {
+    margin: 0 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}

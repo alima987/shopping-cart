@@ -1,0 +1,35 @@
+/* CartWidget.module.css */
+
+.widgetBtn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.widgetBtn:hover {
+    background-color: #f5f5f5;
+}
+
+.coffeeCount {
+    background-color: #f5ce2e;
+    color: #333333;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    font-size: 2rem;
+}
+
+.cartImg {
+    width: 4vw;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .coffeeCount {
+        font-size: 0.6rem;
+    }
+}

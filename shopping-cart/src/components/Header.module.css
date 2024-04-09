@@ -1,0 +1,79 @@
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f5ce2e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 330px;
+  }
+  
+  .logo {
+  }
+  
+  .headerImg {
+    width: 6vw;
+  }
+  
+  .headerTitle {
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    color: black;
+  }
+  .titleWrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .headerCart {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -100px;
+  }
+  .linkMenu {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+  .linkHome,
+  .linkCoffee,
+  .linkCart {
+    margin-left: 1rem;
+    color: black;
+    text-decoration: none;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+  }
+  
+  @media (max-width: 768px) {
+    .headerContainer {
+      flex-direction: column;
+      padding: 0.5rem;
+    }
+  
+    .linkHome,
+    .linkCoffee,
+    .linkCart {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  
+    .logo,
+    .headerTitle,
+    .headerCart {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .headerImg {
+      margin-bottom: 0.5rem;
+    }
+  }
+  

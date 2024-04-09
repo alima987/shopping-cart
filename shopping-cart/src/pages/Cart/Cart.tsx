@@ -1,10 +1,11 @@
 import useLocalStorageState from "use-local-storage-state";
-import { CartProps } from "./Products/Products"
+import { CartProps } from "../Products/Products"
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Operation } from "../components/QuantityControl";
-import QuantityControl from "../components/QuantityControl";
-import Modal from "../components/Checkout";
+import { Operation } from '../../components/QuantityControl'
+import QuantityControl from "../../components/QuantityControl";
+import Modal from "../../components/Checkout";
+import styles from "./Cart.module.css"
 const Cart = () => {
 const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
 const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +15,6 @@ const getCoffees = () => Object.values(cart || {})
 useEffect(() => {
     window.scrollTo(0,0)
 }, [location])
-
 const handleDeleteCoffees = (coffeeId: number) => {
     const updatedCoffee = {...cart}
     delete updatedCoffee[coffeeId]
@@ -39,38 +39,51 @@ const handleQuantityChange = (coffeeId: number, operation: Operation) => {
 
 
 const handleTotalAmount = () => getCoffees().reduce((acc, curr) => acc + (curr.price * curr.quantity), 0)
-
 const handleCheckout = () => {
     clearCart();
     setIsModalOpen(true);
 };
 
     return (
-        <section>
-         <h2>Shopping Cart</h2>
-         <div>
+        <section className={styles.cartSection}>
+         <h2 className={styles.cartTitle}>Shopping Cart</h2>
+         <div className={styles.cartProducts}>
+            <div className={styles.grid}>
+                <div>Product</div>
+                <div>Price</div>
+                <div>Quantity</div>
+                <div>Total</div>
+            </div>
             {getCoffees().map((item) => (
-                <div key={item.id}>
-                    <img className="product-img" src={item.image_url} />
-                    <p>{item.name}</p>
-                    <p>{item.description}</p>
-                    <p>{item.price}</p>
-                     <QuantityControl 
+                <div key={item.id} className={styles.cartProduct}>
+                    <div>
+                    <img className={styles.cartImg} src={item.image_url} />
+                    </div>
+                    <div>
+                    <p className={styles.cartName}>{item.name}</p>
+                    <p className={styles.cartText}>Grind: {item.grind_option}</p>
+                    </div>
+                    <div><p>$ {item.price}</p></div>
+                    <div>
+                    <QuantityControl 
                      handleQuantityChange={handleQuantityChange}
                      coffeeId={item.id}
                      />
-                    <p>Total: ${item.price * item.quantity}</p>
-                    <button onClick={(() => handleDeleteCoffees(item.id))}>
+                     <button className={styles.cartRemoveBtn} onClick={(() => handleDeleteCoffees(item.id))}>
                      Remove
                      </button>
+                    </div>
+                    <div>
+                    <p className={styles.cartTotal}>Total: $ {item.price * item.quantity}</p>
+                    </div>
                 </div>
             ))}
          </div>
-         <button onClick={(() => clearCart())}>
-            Remove all products
+         <button className={styles.removeAllBtn} onClick={(() => clearCart())}>
+            Remove all 
          </button>
-         <p>Subtotal: ${handleTotalAmount()}</p>
-         <button onClick={handleCheckout}>
+         <p className={styles.cartSubtotal}>Subtotal: ${handleTotalAmount()}</p>
+         <button className={styles.checkout}onClick={handleCheckout}>
             CHECK OUT
          </button>
          <Modal isOpen={isModalOpen} onClose={(() => setIsModalOpen(false))}/>
