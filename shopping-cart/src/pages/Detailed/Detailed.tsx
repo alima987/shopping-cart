@@ -1,26 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useState  } from "react";
-import { Product, useCoffeeApi } from "../../hooks/useCoffeeApi";
-import { CartProps } from "../Products/Products";
-import useLocalStorageState from "use-local-storage-state";
+import { useContext, useState  } from "react";
+import { useCoffeeApi } from "../../hooks/useCoffeeApi";
 import styles from "./Detailed.module.css"
+import { CoffeeContext } from "../../CoffeeContext";
 const Detailed = () => {
     const { coffeeId } = useParams()
     const baseUrl = `https://fake-coffee-api.vercel.app/api/${coffeeId}`;
     const { data: coffee, error, isLoading } = useCoffeeApi(baseUrl);
-
-    const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
-    const [quantity, setQuantity] = useState<number>(1);
+    const [quantity, ] = useState<number>(1);
+    const { addToCart } = useContext(CoffeeContext)
     const renderDetailLoader = () => {
       return <div>Loading...</div>
    }
-
-const addToCart = (coffee: Product) => {
-    coffee.quantity = quantity
-    const updatedCart = {...cart, [coffee.id]: coffee}
-    setCart(updatedCart)
-    setQuantity(quantity)
-  }
   
 let productObj: any;
   if (coffee) {

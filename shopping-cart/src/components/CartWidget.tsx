@@ -1,12 +1,13 @@
-import { redirect } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 import cartImg from '../assets/cartImg.png'
 import styles from "../components/CartWidget.module.css"
 interface Props {
     coffeeCount: number
 }
 const CartWidget = ({coffeeCount}: Props) => {
+    const navigate = useNavigate()
     const redirectToCart = () => {
-        redirect('/cart')
+        navigate('/cart')
     }
 return (
     <button
