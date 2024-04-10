@@ -1,4 +1,5 @@
 import { useState  } from "react";
+import styles from "./Quantityontrol.module.css";
 export type Operation = 'plus'|'minus'
 
 interface Props {
@@ -25,16 +26,17 @@ const QuantityControl = ({handleQuantityChange, coffeeId }: Props) => {
     
 
     return (
-        <div>
-            <input type="button" value="-" onClick={handleQuantityMinus} />
+        <div className={styles.quantityContainer}>
+            <input className={styles.quantityMinusBtn} type="button" value="-" onClick={handleQuantityMinus} />
             <input
+                className={styles.quantityInputBtn}
                 type="number"
                 min="1"
                 max="20"
                 value={amount}
                 onChange={(e) => setAmount(parseInt(e.target.value))}
                 />
-            <input type="button" value="+" onClick={handleQuantityPlus}/>
+            <input className={styles.quantityPlusBtn} type="button" value="+" onClick={handleQuantityPlus}/>
         </div>
     )
 

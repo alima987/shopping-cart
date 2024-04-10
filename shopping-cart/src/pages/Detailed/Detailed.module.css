@@ -19,14 +19,14 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    grid-template-columns: minmax(auto, 20rem) minmax(auto, 20rem);
+    grid-template-columns: minmax(auto, 25rem) minmax(auto, 25rem);
     text-align: justify;
     gap: 100px;
   }
   
   .detailImg {
     width: 35vw;
-    height: 29vh;
+    height: 56vh;
     object-fit: cover;
     border-radius: 5px;
   }

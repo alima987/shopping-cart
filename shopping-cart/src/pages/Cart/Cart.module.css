@@ -9,9 +9,6 @@
     margin-bottom: 1rem;
 }
 
-.cartProducts {
-    
-}
 
 .cartProduct {
     border: 1px solid #ccc;
@@ -47,24 +44,27 @@
 }
 
 .cartRemoveBtn {
-    background-color: #f44336;
-    color: #fff;
+    background-color: transparent;
+    color: #6b6767;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 1rem;
 }
 
 .removeAllBtn {
-    background-color: #f44336;
-    color: #fff;
+    background-color: transparent;
+    color: #000;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 1rem;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
 }
 
 .cartSubtotal {
@@ -74,14 +74,17 @@
 }
 
 .checkout {
-    background-color: #4caf50;
+    background-color: #060941;
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 1rem;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
 }
 
 .checkout:hover,
@@ -91,7 +94,7 @@
 }
 .grid {
     border: 1px solid #ccc;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: #fff;
     border-radius: 8px;
     display: grid;
@@ -102,18 +105,18 @@
 }
 .grid > div {
     padding: 0.5rem;
-    text-align: center;
+    text-align: right;
 }
 
 .grid > div:nth-child(1) {
-    grid-row: span 2;
+    text-align: left;
 }
-.grid > div:nth-child(5) {
+.grid > div:nth-child(4) {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.grid > div:nth-child(5) button {
+.grid > div:nth-child(4) button {
     margin-top: 0.5rem;
 }

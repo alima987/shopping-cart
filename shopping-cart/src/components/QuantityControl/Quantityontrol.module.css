@@ -1,0 +1,45 @@
+/* QuantityControl.module.css */
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    margin: 0 auto;
+}
+
+.quantityMinusBtn,
+.quantityPlusBtn,
+.quantityInputBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.quantityMinusBtn:hover,
+.quantityPlusBtn:hover,
+.quantityInputBtn:hover {
+    background-color: #f0f0f0;
+}
+
+.quantityInputBtn {
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    font-size: 1rem;
+    width: 40px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.quantityInputBtn::-webkit-inner-spin-button,
+.quantityInputBtn::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

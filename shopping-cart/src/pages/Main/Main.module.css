@@ -36,8 +36,9 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    grid-template-columns: minmax(auto, 20rem) minmax(auto, 20rem);
+    grid-template-columns: minmax(auto, 25rem) minmax(auto, 25rem);
     text-align: justify;
+    gap: 30px;
   }
   .mainTitle {
     font-size: 1.5em;
@@ -56,7 +57,7 @@
     margin-bottom: 20px;
   }
   .mainImg {
-    width: 27vw;
+    width: 32vw;
     height: auto;
     margin-right: 1rem;
   }
