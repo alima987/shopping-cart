@@ -11,7 +11,7 @@ import styles from "./Header/Header.module.css"
 const Header = () => {
     const [cart, ] = useLocalStorageState<CartProps>('cart', {})
 
-const coffeeCount: number = Object.keys(cart || {}).length
+const coffeeCount: number = Object.values(cart || {}).reduce((acc, curr) => acc + curr.quantity, 0)
     return (
         <>
         <div className={styles.headerContainer}>

@@ -14,7 +14,7 @@ return (
        className={styles.widgetBtn}
        onClick={redirectToCart}>
         <img className={styles.cartImg} src={cartImg}/>
-       <span className={styles.coffeeCount}>{coffeeCount}</span>
+       {coffeeCount > 0 && <span className={styles.coffeeCount}>{coffeeCount}</span>}
     </button>
 )
 }

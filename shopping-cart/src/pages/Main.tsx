@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 
 const Main = () => {
   const baseUrl = `https://fake-coffee-api.vercel.app/api?limit=1`;
-  const { data: coffees} = useCoffeeApi(baseUrl);
+  const { data: coffees, isLoading} = useCoffeeApi(baseUrl);
+  const renderLoader = () => {
+    return <div>Loading...</div>
+ }
   return (
     <div className={styles.container}>
         <div className={styles.section}>
@@ -17,6 +20,7 @@ const Main = () => {
           <img className={styles.sensationImg} src={selection}/>
         </div>
         <h3 className={styles.mainTitle}>Our Coffee Selections</h3>
+        {isLoading ? renderLoader() : null}
           {coffees.map((item) => (
             <div key={item.id} className={styles.selections}>
               <div>

@@ -1,4 +1,4 @@
-import { useState  } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Quantityontrol.module.css";
 export type Operation = 'plus'|'minus'
 
@@ -8,15 +8,17 @@ interface Props {
     currentQuantity: number
 }
 const QuantityControl = ({handleQuantityChange, coffeeId, currentQuantity}: Props) => {
-    //const storedAmount = localStorage.getItem('amount');
-    //const initialAmount = storedAmount ? parseInt(storedAmount) : 1;
     const [amount, setAmount] = useState<number>(currentQuantity);
+
+    useEffect(() => {
+        setAmount(currentQuantity);
+    }, [currentQuantity]);
+
 
     const handleQuantityPlus = (): void => {
         const updatedAmount = amount + 1;
         setAmount(updatedAmount);
         handleQuantityChange(coffeeId, 'plus');
-        localStorage.setItem('amount', JSON.stringify(updatedAmount));
     }
         
     const handleQuantityMinus = (): void => {
@@ -24,14 +26,12 @@ const QuantityControl = ({handleQuantityChange, coffeeId, currentQuantity}: Prop
             const updatedAmount = amount - 1;
             setAmount(updatedAmount);
             handleQuantityChange(coffeeId, 'minus');
-            localStorage.setItem('amount', JSON.stringify(updatedAmount));
         }
 }
 
 const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedAmount = parseInt(e.target.value);
     setAmount(updatedAmount);
-    localStorage.setItem('amount', JSON.stringify(updatedAmount))
 }
 
     

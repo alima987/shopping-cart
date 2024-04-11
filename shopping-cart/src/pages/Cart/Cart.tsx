@@ -7,10 +7,9 @@ import QuantityControl from "../../components/QuantityControl/QuantityControl";
 import Modal from "../../components/Checkout";
 import styles from "./Cart.module.css"
 import { CoffeeContext } from "../../CoffeeContext";
-//import { Product } from "../../hooks/useCoffeeApi";
+
 const Cart = () => {
 const [cart, ] = useLocalStorageState<CartProps>('cart', {})
-//const [bought, setBought] = useLocalStorageState<CartProps>('bought', {})
 const [isModalOpen, setIsModalOpen] = useState(false);
 const { handleDeleteCoffees, clearCart, handleQuantityChange, handleCheckout, } = useContext(CoffeeContext)
 const location = useLocation()

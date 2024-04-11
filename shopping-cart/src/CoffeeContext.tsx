@@ -16,33 +16,26 @@ export const CoffeeContext = createContext<CoffeeContextType>({
     handleDeleteCoffees: () => {},
     clearCart: () => {},
     handleQuantityChange: () => {},
-    handleCheckout: () => {}
+    handleCheckout: () => {},
 })
 
 const CoffeeProvider = ({ children }: any) => {
     const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
-    const [quantity, setQuantity] = useState<number>(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const getCartItemQuantity = (coffeeId: number, cart: { id: number, quantity: number }[]): number => {
-        const itemQuantity = cart.find(item => item.id === coffeeId);
-         return itemQuantity ? itemQuantity?.quantity : 0;
-    }
-    
 
     const addToCart = (coffee: Product) => {
         const newCart = {...cart}
-        // Проверяем, есть ли уже такой товар в корзине
         if (newCart[coffee.id]) {
-          // Если товар уже есть в корзине, увеличиваем количество
           const updatedCart = { ...cart, [coffee.id]: { ...coffee, quantity: newCart[coffee.id].quantity + 1 } };
           setCart(updatedCart);
         } else {
-          // Если товара еще нет в корзине, добавляем его
           const updatedCart = { ...cart, [coffee.id]: { ...coffee, quantity: 1 } };
           setCart(updatedCart);
         }
-      };      
+      
+      };
+    
+        
     const handleDeleteCoffees = (coffeeId: number) => {
         const updatedCoffee = {...cart}
         delete updatedCoffee[coffeeId]
@@ -63,6 +56,7 @@ const CoffeeProvider = ({ children }: any) => {
         } 
         setCart(updatedQuant)
     };
+
     const handleCheckout = () => {
         setCart({});
         setIsModalOpen(true);

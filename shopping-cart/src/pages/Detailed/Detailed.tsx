@@ -1,28 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useContext, useState  } from "react";
+import { useContext } from "react";
 import { useCoffeeApi } from "../../hooks/useCoffeeApi";
 import styles from "./Detailed.module.css"
 import { CoffeeContext } from "../../CoffeeContext";
+
 const Detailed = () => {
     const { coffeeId } = useParams()
     const baseUrl = `https://fake-coffee-api.vercel.app/api/${coffeeId}`;
     const { data: coffee, error, isLoading } = useCoffeeApi(baseUrl);
-    const [quantity, ] = useState<number>(1);
     const { addToCart } = useContext(CoffeeContext)
     const renderDetailLoader = () => {
       return <div>Loading...</div>
    }
-  
-let productObj: any;
-  if (coffee) {
-    coffee.forEach((product) => {
-      if (product.id === Number(coffeeId)) {
-        productObj = product;
-      }
-    });
-  }
-
-
   const isInCart = (coffeeId: number):boolean => Object.values('cart' || {}).includes(coffeeId.toString())
 
       return (
@@ -49,8 +38,6 @@ let productObj: any;
             name="ADD TO CART"
             className={styles.detailCartBtn}
             disabled={isInCart(detail.id)}
-            data-id={productObj.id}
-            data-amount={quantity}
             onClick={(() => addToCart(detail))}>
                ADD TO CART
           </button>
