@@ -59,4 +59,39 @@
     background-color: #ccc;
     cursor: not-allowed;
   }
+
+  @media ((min-width: 780px) and (max-width: 1280px)) {
+    .detailProducts {
+      grid-template-columns: minmax(auto, 18rem) minmax(auto, 18rem);
+      gap: 0;
+    }
+    
+  }
+  
+  @media (min-width: 320px) and (max-width: 780px) {
+    .detailContainer {
+      padding: 1rem;
+    }
+    .detailProducts {
+      grid-template-columns: minmax(auto, 8rem) minmax(auto, 8rem);
+      gap: 15px;
+    }
+    .detailTitle {
+      font-size: 1.2rem;
+    }
+    
+    .detailText {
+      font-size: 0.8rem;
+      margin: 0.5rem 0;
+    }
+    .detailImg {
+      width: 35vw;
+      height: 42vh;
+    }
+    .detailCartBtn {
+      padding: 0.3rem 0.7rem;
+    }
+  }
+  
+
   

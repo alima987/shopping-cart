@@ -9,7 +9,7 @@ import styles from "./Header/Header.module.css"
 //import { useState } from "react"; 
 
 const Header = () => {
-    const [cart, ] = useLocalStorageState<CartProps>('cart', {})
+const [cart, ] = useLocalStorageState<CartProps>('cart', {})
 
 const coffeeCount: number = Object.values(cart || {}).reduce((acc, curr) => acc + curr.quantity, 0)
     return (

@@ -1,5 +1,5 @@
 .cartSection {
-    height: 100%;
+    min-height: 100vh;
     padding: 2rem;
     background-color: #f9f9f9;
 }
@@ -120,3 +120,54 @@
 .grid > div:nth-child(4) button {
     margin-top: 0.5rem;
 }
+.checkout:disabled {
+    background-color: #6b6767;
+}
+@media ((min-width: 780px) and (max-width: 1280px)) {
+    .grid {
+        padding: 0.3rem;
+        grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
+        gap: 1rem;
+    }
+    .cartProduct {
+        padding: 0.8rem;
+        grid-template-columns: repeat(auto-fit, minmax(159px, 1fr));
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    
+    }
+  }
+  @media (min-width: 320px) and (max-width: 780px) {
+    .grid {
+        padding: 0.3rem;
+        grid-template-columns: repeat(auto-fit, minmax(37px, 1fr));
+        gap: 1rem;
+    }
+    .cartProduct {
+        padding: 0.8rem;
+        grid-template-columns: repeat(auto-fit, minmax(159px, 1fr));
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    .cartImg {
+        width: 63vw;
+        margin-bottom: -1rem;
+    }
+    
+    .cartName {
+        font-size: 1.2em;
+    }
+    
+    .cartText {
+        font-size: 1em;
+    }
+    
+    .cartTotal {
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+    
+  }

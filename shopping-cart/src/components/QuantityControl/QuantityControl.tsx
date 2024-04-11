@@ -7,7 +7,7 @@ interface Props {
     coffeeId: number
     currentQuantity: number
 }
-const QuantityControl = ({handleQuantityChange, coffeeId, currentQuantity}: Props) => {
+const QuantityControl = ({handleQuantityChange, coffeeId, currentQuantity }: Props) => {
     const [amount, setAmount] = useState<number>(currentQuantity);
 
     useEffect(() => {

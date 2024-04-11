@@ -49,29 +49,40 @@
     font-style: normal;
     font-size: 1.5em;
   }
-  
-  @media (max-width: 768px) {
-    .headerContainer {
-      flex-direction: column;
-      padding: 0.5rem;
-    }
-  
-    .linkHome,
-    .linkCoffee,
-    .linkCart {
-      margin: 0.5rem 0;
-      text-align: center;
-    }
-  
-    .logo,
-    .headerTitle,
-    .headerCart {
-      width: 100%;
-      text-align: center;
-    }
-  
-    .headerImg {
-      margin-bottom: 0.5rem;
-    }
+
+  @media (min-width: 1280px) {
   }
-  
+@media ((min-width: 780px) and (max-width: 1280px)) {
+  .headerContainer {
+    gap: 150px; 
+  }
+}
+@media ((min-width: 320px) and (max-width: 780px)) {
+  .headerContainer {
+    gap: 50px; 
+  }
+  .headerTitle {
+    font-size: 2.5em;
+}
+  .linkMenu {
+  flex-direction: row;
+}
+}
+
+@media (max-width: 320px) {
+  .headerContainer {
+    gap: 17px; 
+  }
+  .headerImg {
+    width: 12vw; 
+  }
+
+  .headerTitle {
+    font-size: 1.6em; 
+  }
+  .linkHome,
+  .linkCoffee,
+  .linkCart {
+    font-size: 1em;
+  }
+}

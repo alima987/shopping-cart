@@ -11,13 +11,17 @@ import { CoffeeContext } from "../../CoffeeContext";
 const Cart = () => {
 const [cart, ] = useLocalStorageState<CartProps>('cart', {})
 const [isModalOpen, setIsModalOpen] = useState(false);
-const { handleDeleteCoffees, clearCart, handleQuantityChange, handleCheckout, } = useContext(CoffeeContext)
+const { handleDeleteCoffees, clearCart, handleQuantityChange, /*handleCheckout,*/ } = useContext(CoffeeContext)
 const location = useLocation()
 const getCoffees = () => Object.values(cart || {})
 useEffect(() => {
     window.scrollTo(0,0)
 }, [location])
 const handleTotalAmount = (): number => getCoffees().reduce((acc, curr) => acc + (curr.price * curr.quantity), 0)
+const handleCheckout = () => {
+  clearCart()
+  setIsModalOpen(true);
+};
 return (
     <>
       <section className={styles.cartSection}>
@@ -44,7 +48,7 @@ return (
                   <p className={styles.cartName}>{item.name}</p>
                   <p className={styles.cartText}>Grind: {item.grind_option}</p>
                 </div>
-                <div><p>$ {item.price}</p></div>
+                <div><p className={styles.cartText}>$ {item.price}</p></div>
                 <div>
                   <QuantityControl
                     handleQuantityChange={handleQuantityChange}
@@ -64,13 +68,13 @@ return (
               Remove all
             </button>
             <p className={styles.cartSubtotal}>Subtotal: $ {handleTotalAmount()}</p>
-            <button className={styles.checkout} onClick={() => handleCheckout()}>
-               CHECK OUT
-            </button>
           </div>
         )}
+         <button disabled={Object.keys(cart || {}).length === 0} className={styles.checkout} onClick={() => handleCheckout()}>
+               CHECK OUT
+            </button>
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </section>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
   

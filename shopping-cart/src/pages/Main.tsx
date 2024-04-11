@@ -36,9 +36,9 @@ const Main = () => {
           ))}
         <div className={styles.section}>
           <h3 className={styles.mainTitle}>Contact Us</h3>
-          <p className={styles.selectionText}>Address: 187 Black Street, Brewed Bliss Coffee Co NY 13502</p>
-          <p className={styles.selectionText}>Email: coffee@brewedblisscoffee.com</p>
-          <p className={styles.selectionText}>Phone: (+1) 958-256-4587</p>
+          <p className={styles.contactText}>Address: 187 Black Street, Brewed Bliss Coffee Co NY 13502</p>
+          <p className={styles.contactText}>Email: coffee@brewedblisscoffee.com</p>
+          <p className={styles.contactText}>Phone: (+1) 958-256-4587</p>
         </div>
         </div>
     </div>

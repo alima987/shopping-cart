@@ -69,6 +69,13 @@
     font-style: normal;
     font-size: 1.2em;
   }
+  .contactText {
+    text-align: justify;
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+  }
 .seeMoreBtn {
   width: 128px;
   margin-top: 20px;
@@ -83,11 +90,89 @@
 .seeMoreBtn:hover {
   background-color: #ffc107;
 }
+@media ((min-width: 780px) and (max-width: 1280px)) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 780px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .mainHeadTitle {
+    font-size: 1.8em;
+  }
+  .mainTitle {
+    font-size: 1.3em;
+  }
+  .selections {
+    gap: 0;
+  }
+  .sensationText {
+    font-size: 1.2em;
+    margin: 0 0 0 82px;
+}
+  .sensationImg {
+    width: 20vw;
+    margin: 0 78px;
+}
+
+.selections {
+  grid-template-columns: minmax(auto, 16rem) minmax(auto, 19rem);
+}
+.selectionText {
+  font-size: 1em;
+}
+.seeMoreBtn {
+  width: 101px;
+}
+.contactText {
+  font-size: 1em;
+  margin: 0 0 0 82px;
+}
+}
+
+@media (max-width: 320px) {
+  .mainHeadTitle {
+    font-size: 1.5em;
+  }
+  .mainTitle {
+    font-size: 1.1em;
+  }
+  .sensation {
+    display: flex;
+    margin-bottom: 41px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+  .sensationText {
+    font-size: 0.8em;
+    margin: 0 0 0 10px;
+}
+  .sensationImg {
+    width: 43vw;
+    margin: 0 88px;
+}
+
+.selections {
+  grid-template-columns: minmax(auto, 8rem) minmax(auto, 8rem);
+}
+.mainImg {
+  width: 53vw;
+}
 .selectionTitle {
-  font-family: "Crimson Text", serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 1.7em;
-  text-align: center;
-  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+.selectionText {
+  font-size: 0.7em;
+}
+.seeMoreBtn {
+  width: 101px;
+}
+.contactText {
+  font-size: 0.7em;
+  margin: 0 0 0 10px;
+}
 }

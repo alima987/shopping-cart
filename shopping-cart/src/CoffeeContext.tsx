@@ -31,11 +31,8 @@ const CoffeeProvider = ({ children }: any) => {
         } else {
           const updatedCart = { ...cart, [coffee.id]: { ...coffee, quantity: 1 } };
           setCart(updatedCart);
-        }
-      
-      };
-    
-        
+    }
+  }    
     const handleDeleteCoffees = (coffeeId: number) => {
         const updatedCoffee = {...cart}
         delete updatedCoffee[coffeeId]
@@ -58,7 +55,7 @@ const CoffeeProvider = ({ children }: any) => {
     };
 
     const handleCheckout = () => {
-        setCart({});
+        clearCart()
         setIsModalOpen(true);
       };
     const contextValue = {
