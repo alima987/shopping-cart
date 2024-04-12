@@ -5,13 +5,12 @@ import CartWidget from "./CartWidget";
 import useLocalStorageState from "use-local-storage-state";
 import { CartProps } from "../pages/Products/Products";
 import styles from "./Header/Header.module.css"
-//import { Product } from "../hooks/useCoffeeApi";
-//import { useState } from "react"; 
+
 
 const Header = () => {
 const [cart, ] = useLocalStorageState<CartProps>('cart', {})
-
 const coffeeCount: number = Object.values(cart || {}).reduce((acc, curr) => acc + curr.quantity, 0)
+
     return (
         <>
         <div className={styles.headerContainer}>
