@@ -4,7 +4,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useCoffeeApi, Product } from "../../hooks/useCoffeeApi";
-import Search from "../../components/Search/Search";
+import Search from "../../components/Search";
 
 export interface CartProps {
   [coffeeId: string]: Product
@@ -38,6 +38,9 @@ const Products = () => {
     {isLoading ? renderLoader() : null}
     <h2 className={styles.productTitle}>Coffee</h2>
     <Search onSearch={handleSearch}/>
+    {filteredCoffees.length === 0 ? (
+                <div className={styles.noResults}>Try again with other search terms…</div>
+            ) : (
     <div className={styles.poducts}>
       {currentItem.map((coffee: any) => (
         <div key={coffee.id} className={styles.product}>
@@ -50,6 +53,7 @@ const Products = () => {
         </div>
       ))}
     </div>
+      )}
     <Pagination 
     onNextPageClick={() => paginate(currentPage + 1)}
     onPrevPageClick={() => paginate(currentPage - 1)}

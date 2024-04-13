@@ -1,17 +1,20 @@
 import { useState } from "react";
+import styles from '../components/Search/Search.module.css'
+import search from '../assets/search.png'
 interface Props {
     onSearch:(query: string) => void
 }
 const Search = ({onSearch}: Props) => {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const hendleSearch = () => {
+    const handleSearch = () => {
         onSearch(searchTerm)
     }
-   
+    
  return (
-    <div>
+    <div className={styles.searchContainer}>
         <input 
+        className={styles.searchInput}
         type="search"
         name="search-input"
         id="search"
@@ -19,10 +22,12 @@ const Search = ({onSearch}: Props) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <input 
-        type="button"
-        value="Search"
-        onClick={hendleSearch}/>
+         <button
+          className={styles.searchBtn}
+          onClick={handleSearch}
+            >
+          <img  className={styles.searchImg} src={search} alt="Search" />
+          </button>
     </div>
  )
 }
