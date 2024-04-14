@@ -1,9 +1,9 @@
 import { createContext } from "react";
-import { CartProps } from "./pages/Products/Products";
+import { CartProps } from "../pages/Products/Products";
 import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
-import { Operation } from './components/QuantityControl/QuantityControl'
-import { Product } from "./hooks/useCoffeeApi";
+import { Operation } from '../components/QuantityControl/QuantityControl'
+import { Product } from "../hooks/useCoffeeApi";
 interface CoffeeContextType {
     addToCart: (coffee: Product) => void
     handleDeleteCoffees: (coffeeId: number) => void;

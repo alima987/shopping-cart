@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import QuantityControl from "../../components/QuantityControl/QuantityControl";
 import Modal from "../../components/Checkout";
 import styles from "./Cart.module.css"
-import { CoffeeContext } from "../../CoffeeContext";
+import { CoffeeContext } from "../../Context/CoffeeContext";
 
 const Cart = () => {
 const [cart, ] = useLocalStorageState<CartProps>('cart', {})

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { useCoffeeApi } from "../../hooks/useCoffeeApi";
 import styles from "./Detailed.module.css"
-import { CoffeeContext } from "../../CoffeeContext";
+import { CoffeeContext } from "../../Context/CoffeeContext";
 
 const Detailed = () => {
     const { coffeeId } = useParams()
