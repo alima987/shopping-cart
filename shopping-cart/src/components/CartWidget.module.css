@@ -24,9 +24,6 @@
 
 @media (min-width: 320px) and (max-width: 768px) {
 
-    .coffeeCount {
-        font-size: 0.6rem;
-    }
 }
 @media (max-width: 320px) {
     .cartImg {
