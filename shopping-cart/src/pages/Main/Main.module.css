@@ -32,13 +32,14 @@
     font-style: normal;
   }
   .selections {
-    display: grid;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 1rem;
-    grid-template-columns: minmax(auto, 25rem) minmax(auto, 25rem);
     text-align: justify;
     gap: 30px;
+    padding: 4rem 2rem;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: minmax(auto, 20rem) minmax(auto, 20rem);
   }
   .mainTitle {
     font-size: 1.5em;
@@ -57,9 +58,10 @@
     margin-bottom: 20px;
   }
   .mainImg {
-    width: 32vw;
-    height: auto;
     margin-right: 1rem;
+    height: 20rem;
+    width: 9rem;
+    object-fit: cover;
   }
 
   .selectionText {
@@ -97,6 +99,10 @@
 }
 
 @media (min-width: 320px) and (max-width: 780px) {
+  .sensation {
+    flex-wrap: wrap;
+    gap: 23px;
+  }
   .container {
     max-width: 100%;
     padding: 10px;
@@ -112,11 +118,12 @@
   }
   .sensationText {
     font-size: 1.2em;
-    margin: 0 0 0 82px;
+    margin: 0 90px 0 82px;
 }
   .sensationImg {
-    width: 20vw;
-    margin: 0 78px;
+    width: 15rem;
+    margin: 0 120px;
+    object-fit: cover;
 }
 
 .selections {
@@ -153,6 +160,7 @@
 }
   .sensationImg {
     width: 43vw;
+    height: 23vh;
     margin: 0 88px;
 }
 

@@ -1,5 +1,5 @@
 .productContainer {
-height: 100%;
+min-height: 100vh;
 padding: 2rem;
 
 }
@@ -14,20 +14,19 @@ padding: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 .productImg {
-    width: 200px;
-    height: 130px;
+   height: 20rem;
+   width: 10rem;
+   object-fit: cover;
+    margin-bottom: 0.5rem;
 }
 .product {
     padding: 1rem;
   }
   
-  .product img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 0.5rem;
-  }
   .productTextTitle {
     margin: 0;
     font-size: 1.5rem;
@@ -59,6 +58,23 @@ padding: 2rem;
   .productText {
     font-size: 1.1rem;
   }
+ 
   }
+  @media (max-width: 320px) {
+    .productImg {
+  }
+  .poducts {
+    grid-template-columns: repeat(1, 0fr);
+    gap: 0.5rem;
+}
+.paginationCont {
+  flex-direction: column;
+  align-items: center;
+}
+
+.paginationBtn {
+  margin-bottom: 0.5rem; /* Добавляем отступ между кнопками */
+}
   
+  }
   

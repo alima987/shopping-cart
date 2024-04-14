@@ -14,14 +14,16 @@
   }
   
   .detailProducts {
-    padding: 1rem;
-    display: grid;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 1rem;
-    grid-template-columns: minmax(auto, 25rem) minmax(auto, 25rem);
     text-align: justify;
     gap: 100px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 3fr;
+    place-content: center;
+    padding: 4rem 2rem;
+    align-items: center;
+    justify-content: center;
   }
   
   .detailImg {
@@ -62,7 +64,6 @@
 
   @media ((min-width: 780px) and (max-width: 1280px)) {
     .detailProducts {
-      grid-template-columns: minmax(auto, 18rem) minmax(auto, 18rem);
       gap: 0;
     }
     
@@ -73,7 +74,6 @@
       padding: 1rem;
     }
     .detailProducts {
-      grid-template-columns: minmax(auto, 8rem) minmax(auto, 8rem);
       gap: 15px;
     }
     .detailTitle {

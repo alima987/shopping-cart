@@ -57,6 +57,7 @@ const CoffeeProvider = ({ children }: any) => {
     const handleCheckout = () => {
         clearCart()
         setIsModalOpen(true);
+        isModalOpen
       };
     const contextValue = {
       addToCart,

@@ -18,20 +18,18 @@
 }
 
 .cartImg {
-    width: 4vw;
+    width: 5rem;
     height: auto;
 }
 
-@media (max-width: 768px) {
-    .cartImg {
-        width: 5vw;
-    }
+@media (min-width: 320px) and (max-width: 768px) {
+
     .coffeeCount {
         font-size: 0.6rem;
     }
 }
 @media (max-width: 320px) {
     .cartImg {
-        width: 8vw;
+        width: 3rem;
     }
 }
