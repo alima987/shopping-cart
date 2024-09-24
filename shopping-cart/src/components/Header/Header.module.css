@@ -1,0 +1,88 @@
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f5ce2e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 330px;
+  }
+  
+  
+  .headerImg {
+    width: 7rem;
+  }
+  
+  .headerTitle {
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    color: black;
+  }
+  .titleWrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .headerCart {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -100px;
+  }
+  .linkMenu {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+  .linkHome,
+  .linkCoffee,
+  .linkCart {
+    margin-left: 1rem;
+    color: black;
+    text-decoration: none;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 1280px) {
+  }
+@media ((min-width: 780px) and (max-width: 1280px)) {
+  .headerContainer {
+    gap: 150px; 
+  }
+}
+@media ((min-width: 320px) and (max-width: 780px)) {
+  .headerContainer {
+    gap: 0; 
+  }
+  .headerTitle {
+    font-size: 2.5em;
+}
+  .linkMenu {
+  flex-direction: row;
+}
+}
+
+@media (max-width: 320px) {
+  .headerContainer {
+    gap: 17px; 
+  }
+  .headerImg {
+    width: 4rem; 
+  }
+
+  .headerTitle {
+    font-size: 1.6em; 
+  }
+  .linkHome,
+  .linkCoffee,
+  .linkCart {
+    font-size: 1em;
+  }
+}

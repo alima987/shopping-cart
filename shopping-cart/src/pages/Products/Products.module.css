@@ -1,0 +1,80 @@
+.productContainer {
+min-height: 100vh;
+padding: 2rem;
+
+}
+.productTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.poducts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.productImg {
+   height: 20rem;
+   width: 10rem;
+   object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+.product {
+    padding: 1rem;
+  }
+  
+  .productTextTitle {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    color:#0e0909;
+  }
+  .productText {
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: "Crimson Text", serif;
+    font-weight: bold;
+    font-style: normal;
+    color:#0e0909;
+  }
+  
+  @media ((min-width: 320px) and (max-width: 780px)) {
+    .productTitle {
+      font-size: 1.8rem;
+    }
+    .poducts {
+      align-items: center;
+      justify-content: center;
+  }
+  .productTextTitle {
+    font-size: 1.3rem;
+  }
+  .productText {
+    font-size: 1.1rem;
+  }
+ 
+  }
+  @media (max-width: 320px) {
+    .productImg {
+  }
+  .poducts {
+    grid-template-columns: repeat(1, 0fr);
+    gap: 0.5rem;
+}
+.paginationCont {
+  flex-direction: column;
+  align-items: center;
+}
+
+.paginationBtn {
+  margin-bottom: 0.5rem; /* Добавляем отступ между кнопками */
+}
+  
+  }
+  

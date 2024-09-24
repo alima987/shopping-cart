@@ -1,0 +1,97 @@
+
+.detailContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .detailPage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .detailProducts {
+    margin-bottom: 1rem;
+    text-align: justify;
+    gap: 100px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 3fr;
+    place-content: center;
+    padding: 4rem 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .detailImg {
+    width: 35vw;
+    height: 56vh;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .detailTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+  
+  .detailText {
+    margin: 0.5rem 0;
+  }
+  
+  .detailCartBtn {
+    padding: 0.5rem 1rem;
+    background-color: #f5ce2e;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .detailCartBtn:hover {
+    background-color: #ffc107;
+  }
+  
+  .detailCartBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  @media ((min-width: 780px) and (max-width: 1280px)) {
+    .detailProducts {
+      gap: 0;
+    }
+    
+  }
+  
+  @media (min-width: 320px) and (max-width: 780px) {
+    .detailContainer {
+      padding: 1rem;
+    }
+    .detailProducts {
+      gap: 15px;
+    }
+    .detailTitle {
+      font-size: 1.2rem;
+    }
+    
+    .detailText {
+      font-size: 0.8rem;
+      margin: 0.5rem 0;
+    }
+    .detailImg {
+      width: 35vw;
+      height: 42vh;
+    }
+    .detailCartBtn {
+      padding: 0.3rem 0.7rem;
+    }
+  }
+  
+
+  

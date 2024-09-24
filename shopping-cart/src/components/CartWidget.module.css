@@ -1,0 +1,32 @@
+.widgetBtn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.coffeeCount {
+    background-color: #f5ce2e;
+    color: #333333;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    font-size: 2rem;
+}
+
+.cartImg {
+    width: 5rem;
+    height: auto;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+}
+@media (max-width: 320px) {
+    .cartImg {
+        width: 3rem;
+    }
+}
