@@ -6,9 +6,9 @@ This Shopping Cart component is a robust and efficient implementation designed u
 
 - Multi-Page Navigation:
 
-  Home Page: Features sections like The New Sensation, Our Coffee Selections, and Contact Us, providing an engaging introduction to the brand and its offerings.
-  Coffee Page: Showcases a selection of coffee products, allowing users to browse and select their favorite items to add to the cart.
-  Cart Page: Displays the shopping cart with all selected products, enabling users to review, adjust quantities, and remove items as needed.
+  - Home Page: Features sections like The New Sensation, Our Coffee Selections, and Contact Us, providing an engaging introduction to the brand and its offerings.
+  - Coffee Page: Showcases a selection of coffee products, allowing users to browse and select their favorite items to add to the cart.
+  - Cart Page: Displays the shopping cart with all selected products, enabling users to review, adjust quantities, and remove items as needed.
   
 - Dynamic Cart Management: Users can add products to the cart from the Coffee page, adjust quantities, and remove items on the Cart page, with real-time updates reflected in the cart display.
 
