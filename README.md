@@ -20,6 +20,7 @@ This Shopping Cart component is a robust and efficient implementation designed u
 - React
 - TypeScript
 - Context Api
+- React Router
 
 ## Installation
 
